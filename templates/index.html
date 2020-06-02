@@ -18,11 +18,16 @@
             <div class = "row">
                 <div class = "col-8">
                     <h2>Новости</h2>
+                    {%for news in news_list%}
+                    <h2><a href  ="{{news.url}}">{{news.title}}</a></h2>
+                    <p>{{news.publeshd}}</p>
+                    <hr />
+                    {%endfor%}
                 </div>
                 <div class  = "col-4">
                     <h2>Прогноз погоды</h2>
                     {% if weather_1 %}
-                        Город {{weather_1.0.query}} Температура воздуха {{weather_1.1.temp_C}}C
+                        Дата {{date}} Город {{city}} Температура воздуха {{weather_1}}C
                     {%else%}
                         Сервис погоды недоступен
                     {%endif%}
@@ -31,9 +36,9 @@
         </div>
 
         <ol>
-        <li>один</li>
-        <li>два</li>
-        <li>три</li>
+<!--        <li>один</li>-->
+<!--        <li>два</li>-->
+<!--        <li>три</li>-->
         </ol>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
