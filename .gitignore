@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.db
 
 # C extensions
 *.so
@@ -126,3 +127,4 @@ dmypy.json
 .pyre/
 /setings.py
 /lesson_3
+webapp.db
