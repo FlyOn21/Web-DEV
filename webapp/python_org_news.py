@@ -26,7 +26,7 @@ def get_python_news():
             title = news.find('a').text
             url = news.find('a')['href']
             publeshd = news.find('time').text
-            print(publeshd)
+            # print(publeshd)
             try:
                 publeshd = datetime.strptime(publeshd,'%B %d, %Y')
             except:
