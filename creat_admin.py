@@ -1,7 +1,7 @@
-from getpass import getpass
+from getpass import getpass # ВВод пароля из командной строки
 import sys
 from webapp import create_app
-from webapp.model import db,User
+from webapp.db import db,User
 
 app = create_app()
 with app.app_context():
