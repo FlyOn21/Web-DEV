@@ -12,7 +12,7 @@ blueprint= Blueprint('news',__name__)
 @blueprint.route('/')
 def index():
     title = "Новости Python"
-    locale.setlocale(locale.LC_ALL, "ru-RU")
+    locale.setlocale(locale.LC_ALL,"ru_RU.UTF-8")
     news_list = News.query.order_by(News.published.desc()).all()
     weather_c = weather_city(current_app.config['WEATHER_DEFAULT_CITY'])
     if weather_c == False:

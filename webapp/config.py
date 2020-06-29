@@ -10,3 +10,4 @@ WEATHER_URL = 'http://api.worldweatheronline.com/premium/v1/weather.ashx'
 SQLALCHEMY_DATABASE_URI = 'sqlite:///'+ base
 SECRET_KEY = "asjdlkajsdklj3423mn9i0-2;lk31;m.msdm.a,"
 REMEMBER_CUCIES_SAVE = timedelta(days=5)
+SQLALCHEMY_TRACK_MODIFICATIONS = False
