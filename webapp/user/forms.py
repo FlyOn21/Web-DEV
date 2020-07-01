@@ -1,6 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import SubmitField, StringField, PasswordField, HiddenField,BooleanField
-from wtforms.validators import DataRequired,EqualTo,Email
+from wtforms.validators import DataRequired,EqualTo,Email,ValidationError
+from webapp.user.models import User
+from sqlalchemy.exc import IntegrityError
 
 
 class Login_form(FlaskForm):
@@ -18,3 +20,14 @@ class Reg_form(FlaskForm):
     password_2 = PasswordField('Password', validators=[DataRequired(),EqualTo('password')],render_kw={'class':"form-control"})
     hidden_f = HiddenField()
     submit = SubmitField('SEND',render_kw={"class":"btn btn-primary"})
+
+    def validate_username(self,username):
+        user_c = User.query.filter_by(username = username.data).count()
+        if user_c > 0:
+            raise ValidationError('Пользователь с таким логином сушествует')
+
+    def validate_mail(self, email):
+        user_mail = User.query.filter_by(email = email.data).count()
+        if  user_mail > 0:
+            raise ValidationError('Пользователь с таким мылом сушествует')
+
